@@ -41,7 +41,7 @@ Usuario de los servicios de la Persona 1. Prefiere autogestión sobre llamar o e
 
 ## Requerimientos No Funcionales
 
-- RNF-01: La pantalla de horarios disponibles debe cargar en < 2 s p95 con conexión 4G.
+- RNF-01: La pantalla de horarios disponibles debe cargar en < 2 segundos.
 - RNF-02: El cliente debe poder completar una reserva en ≤ 4 pasos desde el link del negocio.
 - RNF-03: El sistema no debe exponer datos ni calendario de un prestador a otro prestador, ni siquiera por manipulación de URL.
 - RNF-04: El sistema no debe exponer los datos de una reserva a un cliente distinto del que la realizó, ni siquiera por manipulación del identificador en la URL.
