@@ -43,7 +43,7 @@ Usuario de los servicios de la Persona 1. Prefiere autogestión sobre llamar o e
 
 - RNF-01: La pantalla de horarios disponibles debe cargar en < 2 s p95 con conexión 4G.
 - RNF-02: El sistema debe tener uptime ≥ 99.5% mensual.
-- RNF-03: La app no debe presentar elementos cortados ni superpuestos en pantallas de resolución ≥ 360 px de ancho, en Android 10+ e iOS 16+.
+- RNF-03: El sitio web no debe presentar elementos cortados ni superpuestos en pantallas de resolución ≥ 360 px de ancho, en Android 10+ e iOS 16+.
 - RNF-04: El cliente debe poder completar una reserva en ≤ 4 pasos desde el link del negocio.
 - RNF-05: El sistema no debe exponer datos ni calendario de un prestador a otro prestador, ni siquiera por manipulación de URL.
 - RNF-06: El sistema no debe exponer los datos de una reserva a un cliente distinto del que la realizó, ni siquiera por manipulación del identificador en la URL.
