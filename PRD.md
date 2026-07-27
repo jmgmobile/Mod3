@@ -79,6 +79,7 @@ Usuario de los servicios de la Persona 1. Prefiere autogestión sobre llamar o e
 - Recordatorios automáticos por WhatsApp o SMS.
 - Reportes o estadísticas.
 - Integración con calendarios externos.
+- Desarrollo de aplicación nativa
 
 ## Riesgos y Dependencias
 
