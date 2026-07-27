@@ -14,7 +14,7 @@ Usuario de los servicios de la Persona 1. Prefiere autogestión sobre llamar o e
 
 ## Objetivos
 
-- Que el prestador reemplace WhatsApp por la app para gestionar turnos: ≥ 80% de las reservas nuevas a través de la app al mes 2.
+- Que el prestador reemplace WhatsApp por el sitio web para gestionar turnos: ≥ 80% de las reservas nuevas a través de el sitio web al mes 2.
 - Que el cliente pueda reservar sin intervención del prestador: flujo completo sin ningún intercambio de mensajes.
 - Reducir cancelaciones sin aviso: tasa de cancelación con aviso previo ≥ 70% al mes 3.
 
@@ -54,7 +54,7 @@ Usuario de los servicios de la Persona 1. Prefiere autogestión sobre llamar o e
 - AC-02 (RF-06): Dado que el prestador bloqueó el jueves 10/07 completo, cuando un cliente intenta reservar ese día, entonces no aparece ningún horario disponible para esa fecha.
 - AC-03 (RF-07): Dado que un turno de las 14:00 ya está reservado, cuando otro cliente accede al link, entonces ese horario no aparece como disponible.
 - AC-04 (RF-12): Dado que un cliente completó una reserva, cuando el sistema la registra, entonces el cliente recibe una confirmación con fecha, hora y nombre del servicio en menos de 30 segundos.
-- AC-05 (RF-13): Dado que faltan menos de 2 horas para el turno, cuando el cliente intenta cancelarlo desde la app, entonces el sistema rechaza la cancelación y muestra un mensaje indicando que el plazo venció.
+- AC-05 (RF-13): Dado que faltan menos de 2 horas para el turno, cuando el cliente intenta cancelarlo desde el sitio web, entonces el sistema rechaza la cancelación y muestra un mensaje indicando que el plazo venció.
 - AC-06 (RF-15): Dado que un cliente reservó un turno, cuando la reserva queda confirmada, entonces el prestador recibe una notificación push en menos de 60 segundos.
 - AC-07 (RF-18): Dado que el prestador comparte su link público, cuando un usuario anónimo lo abre, entonces ve el perfil del negocio y los servicios disponibles sin necesidad de registrarse.
 - AC-08 (RNF-01): Dado que el cliente accede al link con conexión 4G, cuando solicita ver disponibilidad, entonces la pantalla carga completamente en menos de 2 segundos en el percentil 95 de las mediciones.
@@ -82,5 +82,6 @@ Usuario de los servicios de la Persona 1. Prefiere autogestión sobre llamar o e
 
 ## Riesgos y Dependencias
 
-- Riesgo: los prestadores no adoptan la app por inercia al WhatsApp → mitigación: onboarding en < 5 minutos y link para compartir.
+- Riesgo: los prestadores no adoptan el sitio web por inercia al WhatsApp → mitigación: onboarding en < 5 minutos y link para compartir.
 - Riesgo: competidores con más recursos atacan el mismo segmento → mitigación: foco en simplicidad extrema y soporte.
+
