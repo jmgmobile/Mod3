@@ -26,7 +26,7 @@ Usuario de los servicios de la Persona 1. Prefiere autogestión sobre llamar o e
 - RF-04: El sistema debe permitir al prestador eliminar servicios existentes.
 - RF-05: El sistema debe permitir al prestador configurar su disponibilidad semanal indicando días y rangos horarios.
 - RF-06: El sistema debe permitir al prestador bloquear fechas u horarios específicos como no disponibles.
-- RF-07: El sistema debe mostrar al cliente los horarios disponibles del prestador en tiempo real.
+- RF-07: El sistema debe mostrar al cliente los horarios disponibles del prestador.
 - RF-08: El sistema debe permitir al cliente seleccionar un servicio ofrecido por el negocio.
 - RF-09: El sistema debe permitir al cliente seleccionar una fecha disponible para el servicio elegido.
 - RF-10: El sistema debe permitir al cliente seleccionar un horario disponible dentro de la fecha elegida.
@@ -42,11 +42,10 @@ Usuario de los servicios de la Persona 1. Prefiere autogestión sobre llamar o e
 ## Requerimientos No Funcionales
 
 - RNF-01: La pantalla de horarios disponibles debe cargar en < 2 s p95 con conexión 4G.
-- RNF-02: El sistema debe tener uptime ≥ 99.5% mensual.
-- RNF-03: El sitio web no debe presentar elementos cortados ni superpuestos en pantallas de resolución ≥ 360 px de ancho, en Android 10+ e iOS 16+.
-- RNF-04: El cliente debe poder completar una reserva en ≤ 4 pasos desde el link del negocio.
-- RNF-05: El sistema no debe exponer datos ni calendario de un prestador a otro prestador, ni siquiera por manipulación de URL.
-- RNF-06: El sistema no debe exponer los datos de una reserva a un cliente distinto del que la realizó, ni siquiera por manipulación del identificador en la URL.
+- RNF-02: El cliente debe poder completar una reserva en ≤ 4 pasos desde el link del negocio.
+- RNF-03: El sistema no debe exponer datos ni calendario de un prestador a otro prestador, ni siquiera por manipulación de URL.
+- RNF-04: El sistema no debe exponer los datos de una reserva a un cliente distinto del que la realizó, ni siquiera por manipulación del identificador en la URL.
+- RNF-05: La disponibilidad de horarios mostrada al cliente debe reflejar una reserva confirmada por otro cliente en menos de 30 segundos.
 
 ## Criterios de Aceptación
 
@@ -58,7 +57,7 @@ Usuario de los servicios de la Persona 1. Prefiere autogestión sobre llamar o e
 - AC-06 (RF-15): Dado que un cliente reservó un turno, cuando la reserva queda confirmada, entonces el prestador recibe una notificación push en menos de 60 segundos.
 - AC-07 (RF-18): Dado que el prestador comparte su link público, cuando un usuario anónimo lo abre, entonces ve el perfil del negocio y los servicios disponibles sin necesidad de registrarse.
 - AC-08 (RNF-01): Dado que el cliente accede al link con conexión 4G, cuando solicita ver disponibilidad, entonces la pantalla carga completamente en menos de 2 segundos en el percentil 95 de las mediciones.
-- AC-09 (RF-01): Dado que el prestador ingresa nombre del negocio, rubro y foto y guarda el perfil, cuando un cliente accede al link público, entonces ve el nombre, rubro y foto cargados correctamente.
+- AC-09 (RF-01): Dado que el prestador ingresa nombre del negocio, rubro y foto y guarda el perfil, cuando un cliente accede al link público, entonces ve el nombre, el rubro y la foto con los mismos valores guardados por el prestador.
 - AC-10 (RF-02): Dado que el prestador agrega un servicio con nombre, duración y precio opcional, cuando guarda el servicio, entonces aparece en la lista de servicios del negocio con los datos ingresados.
 - AC-11 (RF-03): Dado que el prestador modifica la duración de un servicio existente, cuando guarda el cambio, entonces la lista de servicios refleja el valor actualizado.
 - AC-12 (RF-04): Dado que el prestador elimina un servicio existente, cuando confirma la eliminación, entonces el servicio no aparece en la lista de servicios ni está disponible para que un cliente lo seleccione.
@@ -69,8 +68,13 @@ Usuario de los servicios de la Persona 1. Prefiere autogestión sobre llamar o e
 - AC-17 (RF-14): Dado que el prestador tiene turnos registrados para el día de hoy, cuando abre la vista de calendario diaria, entonces ve todos los turnos del día ordenados cronológicamente con nombre del cliente y servicio.
 - AC-18 (RF-16): Dado que el prestador cancela un turno existente, cuando confirma la cancelación, entonces el turno desaparece de su calendario y el horario queda disponible para nuevas reservas.
 - AC-19 (RF-17): Dado que el prestador marca un turno como completado, cuando confirma la acción, entonces el turno cambia de estado a "completado" y deja de aparecer como pendiente en la vista del día.
-- AC-20 (RNF-05): Dado que el prestador A está autenticado en su cuenta, cuando intenta acceder al calendario o datos del prestador B mediante manipulación de URL, entonces el sistema deniega el acceso y devuelve un error de autorización.
-- AC-21 (RNF-06): Dado que un cliente completó una reserva, cuando otro cliente intenta acceder a los datos de esa reserva manipulando el identificador en la URL, entonces el sistema deniega el acceso y no muestra los datos de la reserva ajena.
+- AC-20 (RNF-03): Dado que el prestador A está autenticado en su cuenta, cuando intenta acceder al calendario o datos del prestador B mediante manipulación de URL, entonces el sistema deniega el acceso y devuelve un error de autorización.
+- AC-21 (RNF-04): Dado que un cliente completó una reserva, cuando otro cliente intenta acceder a los datos de esa reserva manipulando el identificador en la URL, entonces el sistema deniega el acceso y no muestra los datos de la reserva ajena.
+- AC-22 (RF-14): Dado que el prestador tiene turnos registrados para la semana en curso, cuando abre la vista de calendario semanal, entonces ve todos los turnos de la semana agrupados por día con nombre del cliente y servicio.
+- AC-23 (RNF-05): Dado que un cliente A reserva un horario, cuando un cliente B consulta la disponibilidad de ese mismo horario dentro de los 30 segundos posteriores a la reserva de A, entonces el horario ya no aparece como disponible para el cliente B.
+- AC-24 (RF-06): Dado que el prestador bloqueó únicamente el horario de 14:00 a 16:00 del jueves 10/07 dejando el resto del día disponible, cuando un cliente intenta reservar un horario dentro de ese rango, entonces no aparece disponible, y los horarios fuera del rango bloqueado sí aparecen disponibles.
+- AC-25 (RF-13): Dado que faltan 2 horas o más para el turno, cuando el cliente cancela el turno desde el sitio web, entonces el sistema confirma la cancelación y el horario queda disponible para nuevas reservas.
+- AC-26 (RNF-02): Dado que el cliente accede al link del negocio, cuando completa el flujo de reserva (servicio, fecha, horario y datos de contacto) hasta confirmar, entonces lo completa en 4 pasos o menos desde el acceso al link.
 
 ## Fuera de Alcance
 
@@ -85,4 +89,4 @@ Usuario de los servicios de la Persona 1. Prefiere autogestión sobre llamar o e
 
 - Riesgo: los prestadores no adoptan el sitio web por inercia al WhatsApp → mitigación: onboarding en < 5 minutos y link para compartir.
 - Riesgo: competidores con más recursos atacan el mismo segmento → mitigación: foco en simplicidad extrema y soporte.
-
+- Dependencias: ninguna dependencia externa identificada para este alcance.
